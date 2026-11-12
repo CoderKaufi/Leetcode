@@ -30,14 +30,9 @@ def iterate(head):
 # jelikož je ten list sorted tak nemusíme mít mezipaměť v listu, ale můžeme vyhazovat co chceme
 def delete_duplicates(head):
     current = head
-    if not head:
-        return head
-    while current.next != None:
-        while current.val == current.next.val:
+    while current:
+        while current.next and current.val == current.next.val:
             current.next = current.next.next
-            if current.next == None:
-                break
-            
         current = current.next
 
     return head
